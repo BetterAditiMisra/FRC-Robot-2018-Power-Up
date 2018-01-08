@@ -1,32 +1,40 @@
 package org.usfirst.frc.team4015.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team4015.robot.OI;
 import org.usfirst.frc.team4015.robot.Robot;
 
 /* ===================================================
- * This is a template class for creating a new Command
+ * This command moves the piston up and down when button
+ * 4 on the Attack 3 stick is pressed.
  * =================================================*/
 
-public class ExampleCommand extends Command
+public class MovePiston extends Command
 {
-	public ExampleCommand()
+	public MovePiston()
 	{
 		// Use requires() here to declare subsystem dependencies
-		//requires(Robot.exampleSubsystem);
+		requires(Robot.pneumatics);
 	}
 
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize()
 	{
-		
+		// Default / starting position
+		Robot.pneumatics.piston.retract();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute()
 	{
-		
+		if (OI.leftStick.getRawButton(4) == true)
+		{
+			Robot.pneumatics.piston.toggle();
+			Timer.delay(1);
+		}
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

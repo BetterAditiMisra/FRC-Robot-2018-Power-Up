@@ -4,29 +4,32 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team4015.robot.Robot;
 
 /* ===================================================
- * This is a template class for creating a new Command
+ * This command spins the robot in the autonomous period.
+ * 2017 kids will get this lol :P
+ * Use this command to test autonomous mode.
+ * The compressor will run in preparation for teleop.
  * =================================================*/
 
-public class ExampleCommand extends Command
+public class SpinToWin extends Command
 {
-	public ExampleCommand()
+	public SpinToWin()
 	{
 		// Use requires() here to declare subsystem dependencies
-		//requires(Robot.exampleSubsystem);
+		requires(Robot.drivetrain);
 	}
 
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize()
 	{
-		
+		Robot.drivetrain.stop();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute()
 	{
-		
+		Robot.drivetrain.tankDrive(0, 0.5);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -40,7 +43,7 @@ public class ExampleCommand extends Command
 	@Override
 	protected void end()
 	{
-		
+		Robot.drivetrain.stop();
 	}
 
 	// Called when another command which requires one or more of the same
@@ -48,6 +51,6 @@ public class ExampleCommand extends Command
 	@Override
 	protected void interrupted()
 	{
-		
+		Robot.drivetrain.stop();
 	}
 }
