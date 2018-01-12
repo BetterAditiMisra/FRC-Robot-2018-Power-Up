@@ -10,9 +10,9 @@ import org.usfirst.frc.team4015.robot.Robot;
  * 4 on the Attack 3 stick is pressed.
  * =================================================*/
 
-public class MovePiston extends Command
+public class MoveClaw extends Command
 {
-	public MovePiston()
+	public MoveClaw()
 	{
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.pneumatics);
@@ -23,7 +23,7 @@ public class MovePiston extends Command
 	protected void initialize()
 	{
 		// Default / starting position
-		Robot.pneumatics.piston.retract();
+		Robot.pneumatics.claw.retract();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -32,7 +32,7 @@ public class MovePiston extends Command
 	{
 		if (OI.leftStick.getRawButton(4) == true)
 		{
-			Robot.pneumatics.piston.toggle();
+			Robot.pneumatics.claw.toggle();
 			Timer.delay(1);
 		}
 	}

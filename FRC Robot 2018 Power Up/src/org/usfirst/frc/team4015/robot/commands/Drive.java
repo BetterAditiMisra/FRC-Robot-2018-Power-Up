@@ -31,12 +31,10 @@ public class Drive extends Command
 	protected void execute()
 	{
 		// DUAL STICK (left stick ---> throttle, right stick ---> turning) //
-		Robot.drivetrain.tankDrive(OI.leftStick.getY(), OI.rightStick.getX());
+		Robot.drivetrain.drive(OI.rightStick.getY(), OI.rightStick.getX(), OI.leftStick.getX());
 		
 		// SINGLE STICK (left stick) //
-		// Robot.drivetrain.tankDrive(OI.leftStick.getY(), OI.leftStick.getX());
-		
-		// for mecanum drive, invoke mecanum drive methods here
+		// Robot.drivetrain.drive(OI.rightStick.getY(), OI.rightStick.getX(), OI.rightStick.getZ());
 		
 		Timer.delay(0.05);  // motor update time
 		

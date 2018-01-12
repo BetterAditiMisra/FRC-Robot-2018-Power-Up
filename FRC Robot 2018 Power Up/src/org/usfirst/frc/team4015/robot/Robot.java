@@ -51,9 +51,9 @@ public class Robot extends IterativeRobot
 		// Create tank Drivetrain
 		
 		drivetrain = new Drivetrain();
-		drivetrain.newTankDrive();
+		drivetrain.newMecanumDrive();
 		
-		// Create Pnuematics
+		// Create Pneumatics
 		
 		pneumatics = new Pneumatics();
 		

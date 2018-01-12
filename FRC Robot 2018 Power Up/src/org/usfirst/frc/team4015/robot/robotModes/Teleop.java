@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4015.robot.robotModes;
 
 import org.usfirst.frc.team4015.robot.commands.Drive;
-import org.usfirst.frc.team4015.robot.commands.MovePiston;
+import org.usfirst.frc.team4015.robot.commands.MoveClaw;
 import org.usfirst.frc.team4015.robot.commands.ToggleCompressor;
 
 /* ===================================================
@@ -39,7 +39,7 @@ public class Teleop extends CommandGroup
         // arm.
     	
     	addParallel(new Drive());
-    	addParallel(new MovePiston());
+    	addParallel(new MoveClaw());
     	
     	// Uncomment for manual compressor control
     	addParallel(new ToggleCompressor());
