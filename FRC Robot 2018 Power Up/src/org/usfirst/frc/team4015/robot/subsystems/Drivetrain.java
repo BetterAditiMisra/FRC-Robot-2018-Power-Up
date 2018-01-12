@@ -3,13 +3,14 @@ package org.usfirst.frc.team4015.robot.subsystems;
 import org.usfirst.frc.team4015.robot.RobotMap;
 import org.usfirst.frc.team4015.robot.commands.Drive;
 import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /* ===================================================
  * This class contains the methods required to drive 
- * the robot with a tank drive or mecanum drive chassis.
- * Mecanum drive methods are not programmed yet.
+ * the robot with a mecanum drive chassis.  The drive 
+ * method can be configured to drive the robot in tank
+ * drive mode as well.
  * =================================================*/
 
 public class Drivetrain extends Subsystem
@@ -19,22 +20,13 @@ public class Drivetrain extends Subsystem
 	public Talon backLeft;
 	public Talon backRight;
 	
-	public RobotDrive chassis;
+	public MecanumDrive chassis;
 	
 	// DEFAULT CONSTRUCTOR //
 	
 	public Drivetrain()
 	{
 		
-	}
-	
-	// CREATE TANK DRIVE CHASSIS //
-	
-	public void newTankDrive()
-	{
-		frontLeft = new Talon(RobotMap.leftMotors);
-		frontRight = new Talon(RobotMap.rightMotors);	
-		chassis = new RobotDrive(frontLeft, frontRight);
 	}
 	
 	// CREATE MECANUM DRIVE CHASSIS //
@@ -45,26 +37,32 @@ public class Drivetrain extends Subsystem
 		frontRight = new Talon(RobotMap.frontRightMotor);
 		backLeft = new Talon(RobotMap.backLeftMotor);
 		backRight = new Talon(RobotMap.backRightMotor);
-		chassis = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
+		chassis = new MecanumDrive(frontLeft, backLeft, frontRight, backRight);
 	}
 	
-	/* =========== TANK DRIVE ===========
-	 * throttle ---> move value (Y value)
-	 * yaw ---> turn value (X value)
-	 * ================================*/
+	/* ======================================
+	 *                DRIVE
+	 * ======================================                
+	 * ------------MECANUM DRIVE-------------
+	 * ySpeed ---> 1.0 = 100% forward
+	 * ySpeed ---> -1.0 = 100% backward
+	 * xSpeed ---> 1.0 = 100% right
+	 * xSpeed ---> -1.0 = 100% left
+	 * rotation ---> 1.0 = 100% CW
+	 * rotation ---> -1.0 = 100% CCW
+	 * 
+	 *---------------TANK DRIVE-------------
+	 * Same as mecanum but make xSpeed = 0.0
+	 * =====================================*/
 	
-	public void tankDrive(double throttle, double yaw)
+	public void drive(double ySpeed, double xSpeed, double rotation)
 	{
-		chassis.arcadeDrive(throttle, yaw);
+		chassis.driveCartesian(ySpeed, xSpeed, rotation);
 	}
-	
-	// TODO Mecanum Drive //
-	
-	// STOP //
 	
 	public void stop()
 	{
-		tankDrive(0, 0);
+		drive(0, 0, 0);
 	}
 
 	public void initDefaultCommand()

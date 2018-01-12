@@ -13,22 +13,14 @@ import edu.wpi.first.wpilibj.Compressor;
 public class Pneumatics extends Subsystem
 {
 	public Compressor compressor;
-	
-	// Add pistons here
-	// Piston "piston name";
-	
-	public Piston piston;
+	public Piston claw;
 	
 	// CONSTRUCTOR //
 	
 	public Pneumatics()
 	{
 		compressor = new Compressor();
-		
-		// Add pistons here
-		// "piston name" = new Piston(leftChannel, rightChannel)
-		
-		piston = new Piston(RobotMap.pistonLeftChannel, RobotMap.pistonRightChannel);
+		claw = new Piston(RobotMap.clawPistonLeftChannel, RobotMap.clawPistonLeftChannel);
 		
 		// Compressor automatic refill
 		// (when pressure is below switch threshold)

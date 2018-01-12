@@ -19,14 +19,9 @@ public class RobotMap
 	public static final int frontRightMotor = 2;
 	public static final int backRightMotor = 3;
 	
-	// TANK CONFIG //
-	
-	public static final int leftMotors = 0;
-	public static final int rightMotors = 1;
-	
 	// PNEUMATICS PISTON CHANNELS //
 	
-	public static final int pistonLeftChannel = 0;
-	public static final int pistonRightChannel = 1;
+	public static final int clawPistonLeftChannel = 0;
+	public static final int clawPistonRightChannel = 1;
 	
 }
