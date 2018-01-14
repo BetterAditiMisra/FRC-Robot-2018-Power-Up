@@ -1,39 +1,33 @@
 package org.usfirst.frc.team4015.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc.team4015.robot.OI;
 import org.usfirst.frc.team4015.robot.Robot;
 
 /* ===================================================
- * This command allows for control of the claw. 
+ * This command allows for control of the winch for 
+ * climbing.
  * =================================================*/
 
-public class MoveClaw extends Command
+public class Climb extends Command
 {
-	public MoveClaw()
+	public Climb()
 	{
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.pneumatics);
+		requires(Robot.winch);
 	}
 
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize()
 	{
-		// Default / starting position
-		Robot.pneumatics.claw.retract();
+		
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute()
 	{
-		if (OI.leftStick.getRawButton(4) == true)
-		{
-			Robot.pneumatics.claw.toggle();
-			Timer.delay(1);
-		}
+		
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

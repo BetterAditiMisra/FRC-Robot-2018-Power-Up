@@ -19,9 +19,25 @@ public class RobotMap
 	public static final int frontRightMotor = 2;
 	public static final int backRightMotor = 3;
 	
-	// PNEUMATICS PISTON CHANNELS //
+	// CLAW PISTON CHANNELS //
 	
 	public static final int clawPistonLeftChannel = 0;
 	public static final int clawPistonRightChannel = 1;
+	
+	// WINCH //
+	
+	// public static final int winchMotor = ;
+	
+	// ARM //
+	
+	// public static final int armMotors = ;
+	
+	// INTAKE //
+	
+	// public static final int intakeMotors = ;
+	
+	// WRIST //
+	
+	// public static final int wristMotors = ;
 	
 }

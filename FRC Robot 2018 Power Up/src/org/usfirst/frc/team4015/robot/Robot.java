@@ -12,6 +12,10 @@ import org.usfirst.frc.team4015.robot.commands.ExampleCommand;
 
 import org.usfirst.frc.team4015.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team4015.robot.subsystems.Pneumatics;
+import org.usfirst.frc.team4015.robot.subsystems.Arm;
+import org.usfirst.frc.team4015.robot.subsystems.Wrist;
+import org.usfirst.frc.team4015.robot.subsystems.Winch;
+import org.usfirst.frc.team4015.robot.subsystems.Intake;
 
 // ROBOT MODES (COMMAND GROUP) IMPORTS //
 
@@ -29,6 +33,10 @@ public class Robot extends IterativeRobot
 	
 	public static Drivetrain drivetrain;
 	public static Pneumatics pneumatics;
+	public static Arm arm;
+	public static Wrist wrist;
+	public static Winch winch;
+	public static Intake intake;
 	
 	// DECLARE ROBOT MODES (COMMAND GROUPS) //
 	
@@ -48,14 +56,15 @@ public class Robot extends IterativeRobot
 	{
 		// SUBSYSTEM INSTANTIATION //
 		
-		// Create tank Drivetrain
-		
 		drivetrain = new Drivetrain();
 		drivetrain.newMecanumDrive();
 		
-		// Create Pneumatics
-		
 		pneumatics = new Pneumatics();
+		arm = new Arm();
+		wrist = new Wrist();
+		winch = new Winch();
+		intake = new Intake();
+		
 		
 		// INSTANTIATE ROBOT MODES (COMMAND GROUPS) //
 		
