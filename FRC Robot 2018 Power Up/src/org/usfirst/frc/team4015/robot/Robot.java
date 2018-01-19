@@ -12,6 +12,7 @@ import org.usfirst.frc.team4015.robot.commands.ExampleCommand;
 
 import org.usfirst.frc.team4015.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team4015.robot.subsystems.Pneumatics;
+import org.usfirst.frc.team4015.robot.subsystems.Claw;
 import org.usfirst.frc.team4015.robot.subsystems.Arm;
 import org.usfirst.frc.team4015.robot.subsystems.Wrist;
 import org.usfirst.frc.team4015.robot.subsystems.Winch;
@@ -33,6 +34,7 @@ public class Robot extends IterativeRobot
 	
 	public static Drivetrain drivetrain;
 	public static Pneumatics pneumatics;
+	public static Claw claw;
 	public static Arm arm;
 	public static Wrist wrist;
 	public static Winch winch;
@@ -60,6 +62,7 @@ public class Robot extends IterativeRobot
 		drivetrain.newMecanumDrive();
 		
 		pneumatics = new Pneumatics();
+		claw = new Claw();
 		arm = new Arm();
 		wrist = new Wrist();
 		winch = new Winch();

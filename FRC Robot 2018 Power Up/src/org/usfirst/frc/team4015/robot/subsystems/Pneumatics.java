@@ -1,26 +1,22 @@
 package org.usfirst.frc.team4015.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.usfirst.frc.team4015.robot.RobotMap;
-import org.usfirst.frc.team4015.robot.subsystems.pneumaticsControl.Piston;
 import edu.wpi.first.wpilibj.Compressor;
 
 /* ===================================================
  * This class contains the methods/objects required to 
- * control the compressor and piston(s).
+ * control the pneumatics system compressor.
  * =================================================*/
 
 public class Pneumatics extends Subsystem
 {
 	public Compressor compressor;
-	public Piston claw;
 	
 	// CONSTRUCTOR //
 	
 	public Pneumatics()
 	{
 		compressor = new Compressor();
-		claw = new Piston(RobotMap.clawPistonLeftChannel, RobotMap.clawPistonLeftChannel);
 		
 		// Compressor automatic refill
 		// (when pressure is below switch threshold)

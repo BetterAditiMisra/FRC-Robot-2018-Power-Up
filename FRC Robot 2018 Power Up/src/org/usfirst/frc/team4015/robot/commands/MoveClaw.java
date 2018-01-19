@@ -14,7 +14,7 @@ public class MoveClaw extends Command
 	public MoveClaw()
 	{
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.pneumatics);
+		requires(Robot.claw);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,7 +22,7 @@ public class MoveClaw extends Command
 	protected void initialize()
 	{
 		// Default / starting position
-		Robot.pneumatics.claw.retract();
+		Robot.claw.clawPiston.retract();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -31,7 +31,7 @@ public class MoveClaw extends Command
 	{
 		if (OI.leftStick.getRawButton(4) == true)
 		{
-			Robot.pneumatics.claw.toggle();
+			Robot.claw.clawPiston.toggle();
 			Timer.delay(1);
 		}
 	}
